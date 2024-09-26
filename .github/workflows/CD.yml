@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/my-fastapi-server
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/my-fastapi
   VERSION: ${{ github.sha }}
   NAME: fastapi-server
 
@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/silenc3502/my-fastapi-server:latest
+          tags: ghcr.io/${{ secrets.GITHUB_ACTOR }}/my-fastapi:latest
           platforms: linux/arm64
 
   deploy:
@@ -76,7 +76,7 @@ jobs:
 
             echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }}
 
-            docker pull ghcr.io/silenc3502/my-fastapi-server:latest
+            docker pull ghcr.io/silenc3502/my-fastapi:latest
 
             docker image prune -f
             docker logout
