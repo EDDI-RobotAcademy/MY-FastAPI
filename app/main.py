@@ -1,5 +1,6 @@
 import os.path
 import sys
+
 from fastapi.middleware.cors import CORSMiddleware
 
 import colorama
@@ -48,3 +49,4 @@ if __name__ == "__main__":
 
     TaskManager.createSocketServer()
     uvicorn.run(app, host=os.getenv('HOST'), port=int(os.getenv('FASTAPI_PORT')))
+

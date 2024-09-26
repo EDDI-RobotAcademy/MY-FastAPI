@@ -288,6 +288,7 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm
 
+
 # exclude .idea
 .idea
 *.idea
@@ -302,9 +303,12 @@ pyrightconfig.json
 
 # exclude excel file
 *.xlsx
+
 *.idea
 
 # exclude *.pem
 *.pem
+
 *.key
 *.crt
+
