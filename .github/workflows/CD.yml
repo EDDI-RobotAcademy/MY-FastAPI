@@ -46,7 +46,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/${{ secrets.GITHUB_ACTOR }}/my-fastapi:latest
+          tags: ghcr.io/silenc3502/my-fastapi:latest
           platforms: linux/arm64
 
   deploy:
