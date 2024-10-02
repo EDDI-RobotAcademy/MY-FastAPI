@@ -9,7 +9,7 @@ import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
 
-from openai_api.controller.openai_api_controller import openaiApiRouter
+from growth_strategy.controller.growth_strategy_controller import growthStrategyRouter
 from user_defined_initializer.init import UserDefinedInitializer
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'template'))
@@ -41,8 +41,7 @@ app.add_middleware(
 
 app.include_router(deepLearningRouter)
 app.include_router(diceResultRouter)
-
-app.include_router(openaiApiRouter)
+app.include_router(growthStrategyRouter)
 
 if __name__ == "__main__":
     colorama.init(autoreset=True)
