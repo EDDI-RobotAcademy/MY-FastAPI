@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from typing import Any
 
 from growth_strategy.controller.growth_strategy_request_form import GrowthStrategyRequestForm
@@ -32,7 +32,7 @@ async def create_growth_strategy(
             growthStrategyRequestForm.post_frequency
         )
 
-        return JSONResponse(content={"generatedStrategy": generatedStrategy}, status_code=status.HTTP_200_OK)
-
+        # return JSONResponse(content={"generatedStrategy": generatedStrategy}, status_code=status.HTTP_200_OK)
+        return generatedStrategy
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
