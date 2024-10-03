@@ -8,6 +8,7 @@ import asyncio
 
 growthStrategyRouter = APIRouter()
 
+
 async def injectGrowthStrategyService():
     return GrowthStrategyServiceImpl()
 
@@ -19,6 +20,7 @@ async def create_growth_strategy(
         Depends(injectGrowthStrategyService)):
 
     print(f"controller -> create_growth_strategy(): growthStrategyRequestForm: {growthStrategyRequestForm}")
+
 
     try:
         generatedStrategy = await growthStrategyService.generate_growth_strategy(
@@ -32,7 +34,7 @@ async def create_growth_strategy(
             growthStrategyRequestForm.post_frequency
         )
 
-        # return JSONResponse(content={"generatedStrategy": generatedStrategy}, status_code=status.HTTP_200_OK)
-        return generatedStrategy
+        return JSONResponse(content={"generatedStrategy": generatedStrategy}, status_code=status.HTTP_200_OK)
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
