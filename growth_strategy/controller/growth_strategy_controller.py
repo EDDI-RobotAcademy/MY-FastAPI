@@ -24,14 +24,14 @@ async def create_growth_strategy(
 
     try:
         generatedStrategy = await growthStrategyService.generate_growth_strategy(
-            growthStrategyRequestForm.age_group,
             growthStrategyRequestForm.gender,
+            growthStrategyRequestForm.age_group,
             growthStrategyRequestForm.mbti,
             growthStrategyRequestForm.topic,
+            growthStrategyRequestForm.strength,
+            growthStrategyRequestForm.reveal,
             growthStrategyRequestForm.platform,
-            growthStrategyRequestForm.target_audience,
-            growthStrategyRequestForm.content_style,
-            growthStrategyRequestForm.post_frequency
+            growthStrategyRequestForm.interested_influencer
         )
 
         return JSONResponse(content={"generatedStrategy": generatedStrategy}, status_code=status.HTTP_200_OK)

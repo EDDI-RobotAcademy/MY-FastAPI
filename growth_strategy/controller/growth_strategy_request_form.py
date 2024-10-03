@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 class GrowthStrategyRequestForm(BaseModel):
-    age_group: str
     gender: str
+    age_group: str
     mbti: str
     topic: str
+    strength: str
+    reveal: str
     platform: str
-    target_audience: str
-    content_style: str
-    post_frequency: str
+    interested_influencer: str
