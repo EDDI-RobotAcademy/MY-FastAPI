@@ -24,7 +24,7 @@ class GrowthStrategyRepositoryImpl(GrowthStrategyRepository):
         try:
             # 비동기 OpenAI ChatCompletion API 호출
             response = await openai.ChatCompletion.acreate(
-                model="gpt-4",
+                model="gpt-4o-mini",
                 messages=messages,
                 max_tokens=1500,
                 temperature=0.7
