@@ -3,17 +3,12 @@ import os
 from typing import List
 
 from dotenv import load_dotenv
-from fastapi.responses import StreamingResponse
 
 # for langchain library import
-from langchain_teddynote import logging
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_core.prompts import PromptTemplate
-from langchain_community.document_loaders import PyMuPDFLoader # pdf용
 from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import TextSplitter
 
