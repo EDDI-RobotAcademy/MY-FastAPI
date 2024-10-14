@@ -21,6 +21,7 @@ if not openai.api_key:
     raise ValueError("API Key가 준비되어 있지 않습니다!")
 
 os.environ["OPENAI_API_KEY"] = openai.api_key
+environ = os.getenv("ENV")
 
 class BracketSplitter(TextSplitter):
     def split_text(self, text: str) -> List[str]:
@@ -79,7 +80,14 @@ class GrowthStrategyRepositoryImpl(GrowthStrategyRepository):
                 """)
         try:
             # 단계 1: 문서 로드(Load Documents)
-            loader = TextLoader("../data/influencer-feature.txt", encoding="utf-8")
+            # 현재 작업 디렉터리 경로를 얻기
+            current_dir = os.getcwd()
+            if environ == 'develop':
+                file_path = os.path.join(current_dir, "../", "data", "influencer-feature.txt")
+            else:
+                file_path = os.path.join(current_dir, "data", "influencer-feature.txt")
+
+            loader = TextLoader(file_path, encoding="utf-8")
             docs = loader.load()
 
             # 단계 2: 문서 분할(Split Documents)
