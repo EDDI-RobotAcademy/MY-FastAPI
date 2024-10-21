@@ -17,7 +17,7 @@ growthStrategyRouter = APIRouter()
 async def injectGrowthStrategyService() -> GrowthStrategyServiceImpl:
     return GrowthStrategyServiceImpl(UserDefinedQueueRepositoryImpl.getInstance())
 
-@growthStrategyRouter.post('/igrowth-strategy')
+@growthStrategyRouter.post('/growth-strategy')
 async def requestGrowthStrategyResult(GrowthStrategyService: GrowthStrategyServiceImpl =
                                  Depends(injectGrowthStrategyService)):
 
