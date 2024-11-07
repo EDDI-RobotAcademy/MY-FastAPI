@@ -9,8 +9,10 @@ import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
 
+from ai_request.controller.ai_request_controller import aiCommandRouter
 from ai_to_db_test_point.controller.ai_to_db_test_point_controller import aiToDbTestPointRouter
 from growth_strategy.controller.growth_strategy_controller import growthStrategyRouter
+from send_result_to_django.controller.send_result_to_django_controller import sendResultToDjangoRouter
 from user_defined_initializer.init import UserDefinedInitializer
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'template'))
@@ -44,6 +46,8 @@ app.include_router(deepLearningRouter)
 app.include_router(diceResultRouter)
 app.include_router(growthStrategyRouter)
 app.include_router(aiToDbTestPointRouter)
+app.include_router(sendResultToDjangoRouter)
+app.include_router(aiCommandRouter)
 
 if __name__ == "__main__":
     colorama.init(autoreset=True)
